@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The dialogue editor · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a class="active" href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>The dialogue editor</h1>
+<p>Double-click a Dialogue asset to open it.</p>
+<ul>
+<li><strong>Graph (left):</strong> the conversation. It flows left to right.</li>
+<li><strong>Details (right):</strong> the selected node's settings.</li>
+<li><strong>Toolbar:</strong></li>
+<li><strong>Arrange</strong>: lays the whole graph out as a tidy left-to-right tree. Undo works.</li>
+<li><strong>Find</strong> box (Ctrl+F)</li>
+<li><strong>Follow play</strong> toggle (see <a href="live-debugger-and-search.html">Live debugger</a>)</li>
+</ul>
+<p><strong>Asset settings</strong> (click an empty spot in the graph):</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Speaker</td>
+<td>Name used by every line that has no speaker of its own.</td>
+</tr>
+<tr>
+<td>Default Portrait</td>
+<td>Portrait used by every line that has none.</td>
+</tr>
+<tr>
+<td>UI Style</td>
+<td>How this conversation is shown: <code>UI.Dialogue.List</code>, <code>UI.Dialogue.Wheel</code>, <code>UI.Dialogue.Subtitle</code>, or your own. Empty = the default widget.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Working in the graph</strong></p>
+<ul>
+<li><strong>Adding nodes:</strong> right-click → Add Line / Option / Condition / Pick / End / Comment.</li>
+<li><strong>Wires:</strong> drag from an output pin to an input pin.</li>
+<li><strong>Actions on a wire:</strong> double-click any wire, or right-click it → <em>Insert on this wire</em>. See <a href="actions-pills-on-wires.html">Actions</a>.</li>
+<li><strong>Comments:</strong> select nodes and press <strong>C</strong> to wrap them in a comment box.</li>
+<li><strong>Copy and paste</strong> work as usual. Pasted nodes get new IDs.</li>
+</ul>
+<p><strong>Pin colors and shapes.</strong> Inputs are tall bars on the left of a node and outputs are short bars on the right. A wire that leads nowhere ends the conversation. An <strong>End</strong> node does the same, but makes the ending visible.</p></article><div class="prevnext"><a class="prev" href="demo-level.html"><small>Previous</small>Demo level</a><a class="next" href="nodes.html"><small>Next</small>Nodes</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a class="active" href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>UI</h1>
+<h3 id="how-a-conversation-finds-its-widget">How a conversation finds its widget</h3>
+<pre><code>NPC's UI Style Override  →  dialogue asset's UI Style  →  Default Widget
+</code></pre>
+<p><strong>Project Settings → Plugins → Tag Dialogue UI</strong> maps style tags to widgets:</p>
+<ul>
+<li><strong>Default Widget</strong>: used when a style has no widget of its own.</li>
+<li><strong>Style Widgets</strong>: style tag → widget.</li>
+<li>Add your own styles under <code>UI.Dialogue</code> in Gameplay Tags.</li>
+<li>A missing style falls back to its parent: <code>UI.Dialogue.Wheel.Small</code> → <code>UI.Dialogue.Wheel</code> → Default.</li>
+<li><strong>Auto Show</strong>: creates and shows the widget when the player starts talking. Turn it off to show widgets yourself (Common UI stack, your own HUD).</li>
+</ul>
+<p>Built-in styles: <code>UI.Dialogue.List</code>, <code>UI.Dialogue.Wheel</code> and <code>UI.Dialogue.Subtitle</code>.</p>
+<h3 id="templates">Templates</h3>
+<p><strong>Create Templates</strong> makes five widgets and sets them as defaults:</p>
+<table>
+<thead>
+<tr>
+<th>Widget</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WBP_TDS_Cinematic</td>
+<td>Default: speaker, line, option list.</td>
+</tr>
+<tr>
+<td>WBP_TDS_CinematicWheel</td>
+<td>Options on a wheel.</td>
+</tr>
+<tr>
+<td>WBP_TDS_CinematicSubtitle</td>
+<td>Subtitles only (radio, narrator).</td>
+</tr>
+<tr>
+<td>WBP_TDS_CinematicOption</td>
+<td>The option button used by the list.</td>
+</tr>
+<tr>
+<td>WBP_TDS_CinematicBark</td>
+<td>Bark subtitles.</td>
+</tr>
+</tbody>
+</table>
+<p>Open them and restyle freely. They're normal Widget Blueprints.</p>
+<h3 id="building-your-own-widget-with-blocks">Building your own widget with blocks</h3>
+<p>Drop these into any Widget Blueprint. They find the conversation by themselves, with no Blueprint wiring needed.</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TDS Text</strong></td>
+<td>Set <strong>Source</strong> to one of: Speaker, Line, Hovered Option, Hovered Option Subtitle or Player Name. Line mode has a typewriter, typing sounds, a speaker prefix, speaker colors and auto-advance.</td>
+</tr>
+<tr>
+<td><strong>TDS Option List</strong></td>
+<td>One entry per option. <strong>Entry Box Type</strong> picks the layout: Vertical, Horizontal, Wrap or Radial. <strong>Entry Class</strong> = your own button.</td>
+</tr>
+<tr>
+<td><strong>TDS Option Wheel</strong></td>
+<td>Options as a ring, with mouse and stick pointing.</td>
+</tr>
+<tr>
+<td><strong>TDS Option Button</strong></td>
+<td>The built-in entry. Make a child Blueprint and name widgets <code>Button</code>, <code>Label</code>, <code>NumberText</code> and <code>SubtitleText</code>; they're filled for you.</td>
+</tr>
+<tr>
+<td><strong>TDS Portrait</strong></td>
+<td>The speaker's portrait.</td>
+</tr>
+<tr>
+<td><strong>TDS Continue Prompt</strong></td>
+<td>Visible only when the player can continue. Put your own icon or text inside; click to continue.</td>
+</tr>
+<tr>
+<td><strong>TDS Bark Subtitle / TDS Bark Text</strong></td>
+<td>Barks (see above).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fully-custom-ui">Fully custom UI</h3>
+<p>You can skip the blocks entirely:</p>
+<ul>
+<li><strong>Interface:</strong> implement <strong>TDS Dialogue View</strong> on any object and register it with <strong>Get Dialogue Hub → Register View</strong>. You get On Dialogue Opened, On Line Shown, On Options Shown, On Option Hovered, On Typing Changed, On Waiting For Tag, On Dialogue Closed and On Point Direction.</li>
+<li><strong>Events:</strong> bind the <strong>Dialogue Hub</strong>'s events from any Blueprint (On Conversation Started, On Line Shown, and so on).</li>
+<li><strong>Talking back:</strong> use the <strong>Session</strong>: Advance, Choose (or <strong>Choose Next Frame</strong> from button clicks), Hover, Hover Step, Choose Hovered, Choose By Number and End.</li>
+</ul>
+<h3 id="common-ui">Common UI</h3>
+<p>If your project uses Common UI:</p>
+<ul>
+<li><strong>TDS Dialogue Layer:</strong> drop it into your root layout and turn <strong>Auto Show</strong> off.</li>
+<li><strong>TDS Common Dialogue Widget:</strong> a base class for the dialogue widget (Back ends the talk, and gamepad focus goes to the first option).</li>
+<li><strong>TDS Common Option Button:</strong> an option entry with Common UI navigation.</li>
+<li><strong>TDS Common Key Hint:</strong> "[A] Continue" hints with the right icon per device.</li>
+</ul></article><div class="prevnext"><a class="prev" href="save-and-load.html"><small>Previous</small>Save and load</a><a class="next" href="input-and-controls.html"><small>Next</small>Input and controls</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

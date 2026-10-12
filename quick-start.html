@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick start · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a class="active" href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>Quick start</h1>
+<p><strong>Goal:</strong> an NPC that talks when the player presses E. It takes about 5 minutes.</p>
+<ol>
+<li><strong>Enable the plugin.</strong> Go to Edit → Plugins, search "Tag Dialogue", enable it and restart the editor.</li>
+<li><strong>Create the UI.</strong> The first time the editor opens, a popup appears. Click <strong>Create Templates</strong>.
+   - This creates ready-made dialogue widgets and sets them as the defaults.
+   - You can do it later from <strong>Tools → Tag Dialogue → Create UI Templates</strong>, or by right-clicking a Content folder → <strong>Create Dialogue UI Templates</strong>.</li>
+<li><strong>Create a dialogue.</strong> In the Content Browser: right-click → <strong>Tag Dialogue → Dialogue</strong>. Name it <code>DA_Shopkeeper</code> and open it.</li>
+<li><strong>Write it.</strong>
+   - A <strong>Start</strong> node and a first line ("Hello!") are already there.
+   - Click the line and type its text in Details.
+   - Right-click the graph → <strong>Add Line</strong> to add more, and wire the line's output into the next line's input.
+   - Click <strong>Add option</strong> on a line to give the player choices.</li>
+<li><strong>Add the component.</strong> Open your NPC Blueprint → <strong>Add Component → TDS Dialogue</strong>, then set <strong>Dialogue</strong> to <code>DA_Shopkeeper</code>.</li>
+<li><strong>Start it.</strong> In the NPC (or player) Blueprint, when the player interacts, call <strong>Start Dialogue</strong> on the TDS Dialogue component. Pass the player pawn as <strong>Instigator</strong>.</li>
+<li><strong>Play.</strong>
+   - The dialogue widget appears.
+   - <strong>Space</strong>, <strong>Enter</strong> or <strong>left click</strong> continues; <strong>Up/Down</strong> and <strong>1–9</strong> pick options.
+   - When the conversation ends, input goes back to the game.</li>
+</ol>
+<blockquote>
+<p>Until you set up a UI, <strong>Print To Screen</strong> (on by default on the component) prints every line and option to the screen.</p>
+</blockquote></article><div class="prevnext"><span></span><a class="next" href="how-it-works-tags.html"><small>Next</small>How it works: tags</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TDS Tag State component · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a class="active" href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>TDS Tag State component</h1>
+<p>This component makes an actor follow the tag state, so the world matches the story with <strong>no save code</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>When</td>
+<td>A tag query, e.g. <em>Any Tags Match: <code>Item.Key.Picked</code></em></td>
+</tr>
+<tr>
+<td>Action</td>
+<td><strong>Hide</strong> (hides it and turns off collision), <strong>Show</strong> (hidden until met), <strong>Destroy</strong>, or <strong>Events Only</strong></td>
+</tr>
+</tbody>
+</table>
+<p>It checks on Begin Play, every time tags change, and after loading a save. <strong>On State Changed (Met)</strong> fires each time, so you can do anything else in Blueprint (play an animation, open a gate). Add several to one actor for several reactions.</p>
+<p>Examples:</p>
+<ul>
+<li>A key pickup with Hide when <code>Item.Key.Picked</code>.</li>
+<li>A gate blocker with Hide when <code>Quest.FindKey.Done</code>.</li>
+<li>A reward chest with Show when <code>Reward.Sword</code>.</li>
+</ul>
+<blockquote>
+<p>Prefer <strong>Hide</strong> over <strong>Destroy</strong>. A destroyed actor can't come back if the player loads an older save in the same session.</p>
+</blockquote></article><div class="prevnext"><a class="prev" href="barks.html"><small>Previous</small>Barks</a><a class="next" href="blueprint-nodes-for-tags.html"><small>Next</small>Blueprint nodes for tags</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

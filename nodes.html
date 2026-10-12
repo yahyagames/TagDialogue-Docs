@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nodes · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a class="active" href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>Nodes</h1>
+<h3 id="start">Start</h3>
+<p>Where the conversation begins on a fresh talk. When a task is running, the NPC may start somewhere else instead (see <a href="tasks-quests.html">Tasks</a>).</p>
+<h3 id="line">Line</h3>
+<p>Something a speaker says.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaker</td>
+<td>Who says it. Empty = the asset's Default Speaker.</td>
+</tr>
+<tr>
+<td>Portrait</td>
+<td>Image for the UI. Empty = the Default Portrait.</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>The line. Supports <a href="text-variables.html">text variables</a> like <code>{PlayerName}</code>.</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>Voice clip. It plays on the NPC and stops when the next line starts.</td>
+</tr>
+<tr>
+<td>Once Only</td>
+<td>Play this line the first time only. Later talks skip it and go straight on; actions on its wire still run. Remembered per NPC and saved. Ignored on lines with options.</td>
+</tr>
+<tr>
+<td>On Enter Actions</td>
+<td>Actions that run the moment the line starts (e.g. open a door while the NPC speaks).</td>
+</tr>
+</tbody>
+</table>
+<p>A line either <strong>continues</strong> (one wire out) or <strong>asks</strong> (has options).</p>
+<h3 id="option">Option</h3>
+<p>What the <strong>player</strong> says. (Lines are what the NPC says.) Click <strong>Add option</strong> on a line, or right-click → Add Option and wire the line into it.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text</td>
+<td>The player's words, short ("I need a sword.").</td>
+</tr>
+<tr>
+<td>Subtitle</td>
+<td>Shown on hover: the full sentence or a hint ("I need a blade strong enough for the road.").</td>
+</tr>
+<tr>
+<td>Required Tags</td>
+<td>The option is locked unless all these tags are in the tag state.</td>
+</tr>
+<tr>
+<td>Hide When Locked</td>
+<td>Hide a locked option instead of graying it out.</td>
+</tr>
+<tr>
+<td>After Closed</td>
+<td>What a closed option looks like: Gray Out or Hide (see Close Task).</td>
+</tr>
+<tr>
+<td>Instant</td>
+<td>Picking it doesn't show the player's line; the reply plays right away.</td>
+</tr>
+<tr>
+<td>Actions</td>
+<td>Run when the option is picked.</td>
+</tr>
+<tr>
+<td>Starts Task</td>
+<td>Picking it starts a task (see <a href="tasks-quests.html">Tasks</a>).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="condition">Condition</h3>
+<p>Shows nothing. It checks the tag state and goes <strong>True</strong> or <strong>Else</strong>.</p>
+<ul>
+<li>Set <strong>Condition</strong> with the standard Gameplay Tag Query editor: All / Any / No Tags Match, and nested expressions.</li>
+<li>An empty condition is always true.</li>
+<li>Example: <em>If <code>Quest.Key.Done</code> → "Thanks again!" / Else → "Have you seen my key?"</em></li>
+</ul>
+<h3 id="pick">Pick</h3>
+<p>Shows nothing. Each time the conversation passes through, it takes <strong>one</strong> of its outputs. Use <strong>+</strong> / <strong>−</strong> on the node to add or remove outputs.</p>
+<table>
+<thead>
+<tr>
+<th>Pick Mode</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random</td>
+<td>A random output, never the same one twice in a row.</td>
+</tr>
+<tr>
+<td>In Order, Loop</td>
+<td>1, 2, 3, 1, 2, 3…</td>
+</tr>
+<tr>
+<td>In Order, Stay On Last</td>
+<td>1, 2, 3, 3, 3… (great for "first time / second time / every time after")</td>
+</tr>
+</tbody>
+</table>
+<p>Progress is remembered per NPC and saved.</p>
+<h3 id="end">End</h3>
+<p>Ends the conversation.</p></article><div class="prevnext"><a class="prev" href="the-dialogue-editor.html"><small>Previous</small>The dialogue editor</a><a class="next" href="actions-pills-on-wires.html"><small>Next</small>Actions (pills on wires)</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barks · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a class="active" href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>Barks</h1>
+<p>Barks are lines an NPC says on its own: "Nice weather." or "Hey, watch it!". No UI takes over and no input is locked.</p>
+<ol>
+<li>Create a normal Dialogue asset for the barks. Usually it's a <strong>Pick (Random)</strong> node into a few lines, optionally behind a <strong>Condition</strong>.</li>
+<li>On the TDS Dialogue component, set <strong>Barks</strong> to that asset.</li>
+<li>Call <strong>Bark</strong> (e.g. on overlap, on a timer, when hit).
+   - <strong>Bark Override</strong> plays a different asset this time, e.g. a "hurt" set.
+   - <strong>Ignore Cooldown</strong> skips the cooldown.
+   - It returns false if the NPC is in a conversation, on cooldown, already barking, or has nothing to say.</li>
+</ol>
+<p>A bark plays from its start line through conditions, picks and Next wires. Each line stays up for its voice length, or for a time based on its text length (at least <strong>Bark Min Time</strong>).</p>
+<p><strong>Showing barks.</strong> Use any mix of these:</p>
+<table>
+<thead>
+<tr>
+<th>Way</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subtitles (default)</td>
+<td><strong>Project Settings → Tag Dialogue UI → Show Bark Subtitles</strong> is on by default. Nearby barks show as subtitles at the bottom of the screen. Set <strong>Bark Subtitle Widget</strong> to use your own (the templates create <code>WBP_TDS_CinematicBark</code>).</td>
+</tr>
+<tr>
+<td>Above the head</td>
+<td>Add a <strong>TDS Bark Widget</strong> component to the NPC. It shows a speech bubble; Widget Class empty = a simple dark bubble. Your own widget just needs a <strong>TDS Bark Text</strong> or <strong>TDS Bark Subtitle</strong> inside. <strong>Max Distance</strong> hides far barks.</td>
+</tr>
+<tr>
+<td>Your own</td>
+<td>Bind <strong>On Bark</strong> on the component (one NPC) or on the Tag Subsystem (every NPC).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Speaker colors</strong> (Project Settings → Tag Dialogue UI → Speaker Colors) color names in bark subtitles and dialogue text.</p></article><div class="prevnext"><a class="prev" href="the-tds-dialogue-component.html"><small>Previous</small>The TDS Dialogue component</a><a class="next" href="tds-tag-state-component.html"><small>Next</small>TDS Tag State component</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

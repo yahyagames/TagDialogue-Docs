@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasks (quests) · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a class="active" href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>Tasks (quests)</h1>
+<p>Any option can start a task. Tick <strong>Starts Task</strong> on the option and fill in the fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Example</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task Tag</td>
+<td><code>Quest.FindKey</code></td>
+<td>Added when the task starts. Means "running".</td>
+</tr>
+<tr>
+<td>Done Tag</td>
+<td><code>Quest.FindKey.Done</code></td>
+<td>Means "complete".</td>
+</tr>
+<tr>
+<td>Complete On Tags</td>
+<td><code>Item.Key.Picked</code></td>
+<td>The task completes when <strong>all</strong> of these have been sent or added, in any order. The plugin then adds and sends the Done Tag. Leave it empty to add the Done Tag yourself.</td>
+</tr>
+<tr>
+<td>Ask</td>
+<td>→ line</td>
+<td>Played when the player talks again while the task is running ("Found it yet?").</td>
+</tr>
+<tr>
+<td>Reward</td>
+<td>→ line</td>
+<td>Played <strong>once</strong>, the first talk after completion ("You found it! Take this.").</td>
+</tr>
+<tr>
+<td>Done</td>
+<td>→ line</td>
+<td>Played if the player picks the option again after the reward ("I already gave you one.").</td>
+</tr>
+</tbody>
+</table>
+<p>On the Option node, the Ask, Reward and Done pins are wired like any other output.</p>
+<p><strong>What the NPC does on each talk:</strong></p>
+<pre><code>task not started        → Start
+task running            → Ask
+task complete           → Reward (once)
+after reward            → Start; picking the task option again → Done
+</code></pre>
+<ul>
+<li><strong>Already done before accepting.</strong> If the player picks the task option when its Complete On Tags already happened (they found the key first), the NPC goes straight to the Reward.</li>
+<li><strong>Canceling a task.</strong> If you remove the Task Tag, the task is canceled and the NPC starts from the beginning again.</li>
+<li><strong>Progress in Blueprint.</strong> Call <strong>Get Task Progress</strong> on the Tag Subsystem (e.g. "1 / 2" for a quest log) and <strong>Get Dialogue State</strong> on the component.</li>
+</ul></article><div class="prevnext"><a class="prev" href="actions-pills-on-wires.html"><small>Previous</small>Actions (pills on wires)</a><a class="next" href="text-variables.html"><small>Next</small>Text variables</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

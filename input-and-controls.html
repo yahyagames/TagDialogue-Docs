@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Input and controls · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a class="active" href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>Input and controls</h1>
+<p><strong>Project Settings → Tag Dialogue UI → Controls</strong> (works with any UI):</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Confirm Keys (continue / choose highlighted)</td>
+<td>Space, Enter, Left Mouse, Gamepad A</td>
+</tr>
+<tr>
+<td>Previous / Next Keys</td>
+<td>Up / Down, D-pad</td>
+</tr>
+<tr>
+<td>Cancel Keys (walk out)</td>
+<td>Empty = the player can't leave mid-conversation</td>
+</tr>
+<tr>
+<td>Number Keys Choose</td>
+<td>On (1–9)</td>
+</tr>
+<tr>
+<td>Stick Points At Options</td>
+<td>On (wheel)</td>
+</tr>
+<tr>
+<td>Block Game Input</td>
+<td>Off</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Per style</strong> (<strong>Input → Style Input</strong>). Each UI style can treat input differently:</p>
+<ul>
+<li><strong>Manage Input Mode</strong></li>
+<li><strong>Show Mouse Cursor</strong></li>
+<li><strong>Block Game Input</strong></li>
+<li><strong>Built In Controls</strong></li>
+</ul>
+<p><code>UI.Dialogue.Subtitle</code> comes preset to no mouse and no lock, so the player keeps walking while a radio talks.</p>
+<p>Turn <strong>Built In Controls</strong> off to drive the Session from your own Enhanced Input actions.</p></article><div class="prevnext"><a class="prev" href="ui.html"><small>Previous</small>UI</a><a class="next" href="import-and-export-json-csv.html"><small>Next</small>Import and export (JSON, CSV)</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>

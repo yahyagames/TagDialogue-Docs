@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Save and load · Tag Dialogue</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar"><button class="menu" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<span class="spacer"></span><a class="btn small" href="#">Get it on Fab</a></header>
+<div class="layout"><nav class="sidebar" id="sidebar"><a class="brand" href="index.html"><img src="assets/icon.png" alt=""><span>Tag Dialogue</span></a>
+<div class="search"><input id="search" type="search" placeholder="Search docs..." autocomplete="off"><div id="results"></div></div>
+<div class="group">Getting started</div>
+<a href="quick-start.html">Quick start</a>
+<a href="how-it-works-tags.html">How it works: tags</a>
+<a href="demo-level.html">Demo level</a>
+<div class="group">Writing dialogue</div>
+<a href="the-dialogue-editor.html">The dialogue editor</a>
+<a href="nodes.html">Nodes</a>
+<a href="actions-pills-on-wires.html">Actions (pills on wires)</a>
+<a href="tasks-quests.html">Tasks (quests)</a>
+<a href="text-variables.html">Text variables</a>
+<div class="group">In your game</div>
+<a href="the-tds-dialogue-component.html">The TDS Dialogue component</a>
+<a href="barks.html">Barks</a>
+<a href="tds-tag-state-component.html">TDS Tag State component</a>
+<a href="blueprint-nodes-for-tags.html">Blueprint nodes for tags</a>
+<a class="active" href="save-and-load.html">Save and load</a>
+<div class="group">UI and input</div>
+<a href="ui.html">UI</a>
+<a href="input-and-controls.html">Input and controls</a>
+<div class="group">Tools</div>
+<a href="import-and-export-json-csv.html">Import and export (JSON, CSV)</a>
+<a href="live-debugger-and-search.html">Live debugger and search</a>
+<a href="ai-writing.html">Writing with AI (JSON)</a>
+<div class="group">Help</div>
+<a href="troubleshooting.html">Troubleshooting</a>
+<div class="group">Links</div><a href="#">Get it on Fab</a><a href="mailto:YOUR-SUPPORT-EMAIL">Support</a></nav>
+<main class="content"><article><h1>Save and load</h1>
+<p>Tag Dialogue remembers:</p>
+<ul>
+<li>the tag state</li>
+<li>running tasks</li>
+<li>every NPC's memory: task progress, closed options, Once Only lines and Pick positions</li>
+<li>global text variables</li>
+</ul>
+<p>NPC memory lives in the subsystem, so NPCs in unloaded levels are saved too.</p>
+<p><strong>Option A: built-in slot.</strong> This is the simplest.</p>
+<ul>
+<li><strong>Save To Slot</strong> (Slot Name, User Index) writes <code>Saved/SaveGames/&lt;Slot&gt;.sav</code>.</li>
+<li><strong>Load From Slot</strong> reads it back. NPCs already in the level update right away.</li>
+</ul>
+<p><strong>Option B: your own save system.</strong></p>
+<ul>
+<li><strong>Capture Save Data</strong> returns one struct. Store it in your own Save Game, cloud save or database.</li>
+<li><strong>Restore Save Data</strong> puts it back.</li>
+</ul>
+<p><strong>New game:</strong> <strong>Reset All Dialogue State</strong>. <strong>On State Restored</strong> fires after restore, load or reset.</p>
+<p><strong>Spawned NPCs:</strong> give each one a fixed <strong>Save Id</strong> on its TDS Dialogue component so its memory finds it again.</p></article><div class="prevnext"><a class="prev" href="blueprint-nodes-for-tags.html"><small>Previous</small>Blueprint nodes for tags</a><a class="next" href="ui.html"><small>Next</small>UI</a></div>
+<footer>Tag Dialogue 1.0 · Unreal Engine 5.6 · © Yahya · Unreal Engine is a trademark of Epic Games, Inc. This site is not affiliated with Epic Games.</footer></main></div>
+<script src="assets/search.js"></script></body></html>
