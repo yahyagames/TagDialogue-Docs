@@ -42,10 +42,14 @@
 <ol>
 <li>Create a normal Dialogue asset for the barks. Usually it's a <strong>Pick (Random)</strong> node into a few lines, optionally behind a <strong>Condition</strong>.</li>
 <li>On the TDS Dialogue component, set <strong>Barks</strong> to that asset.</li>
-<li>Call <strong>Bark</strong> (e.g. on overlap, on a timer, when hit).
-   - <strong>Bark Override</strong> plays a different asset this time, e.g. a "hurt" set.
-   - <strong>Ignore Cooldown</strong> skips the cooldown.
-   - It returns false if the NPC is in a conversation, on cooldown, already barking, or has nothing to say.</li>
+<li>
+<p>Call <strong>Bark</strong> (e.g. on overlap, on a timer, when hit).</p>
+<ul>
+<li><strong>Bark Override</strong> plays a different asset this time, e.g. a "hurt" set.</li>
+<li><strong>Ignore Cooldown</strong> skips the cooldown.</li>
+<li>It returns false if the NPC is in a conversation, on cooldown, already barking, or has nothing to say.</li>
+</ul>
+</li>
 </ol>
 <p>A bark plays from its start line through conditions, picks and Next wires. Each line stays up for its voice length, or for a time based on its text length (at least <strong>Bark Min Time</strong>).</p>
 <p><strong>Showing barks.</strong> Use any mix of these:</p>

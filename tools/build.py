@@ -45,6 +45,15 @@ def fix_links(md_text):
     return md_text
 
 def render(md_text):
+    md_text = re.sub(r"^   (?=\S)", "    ", md_text, flags=re.M)  # 3-space list nesting -> 4 (Python-Markdown)
+    # Python-Markdown needs a blank line between a list item's text and its nested list
+    lines, fixed = md_text.split("\n"), []
+    for i, line in enumerate(lines):
+        prev = fixed[-1] if fixed else ""
+        if re.match(r"^ {4}[-*] ", line) and prev.strip() and not re.match(r"^ {4}[-*] ", prev):
+            fixed.append("")
+        fixed.append(line)
+    md_text = "\n".join(fixed)
     return markdown.markdown(fix_links(md_text), extensions=MD_EXT, output_format="html5")
 
 # ---------------------------------------------------------------- layout
@@ -100,6 +109,8 @@ def page_html(title, body, active=None, wide=False, extra_head=""):
 OUT.mkdir(parents=True, exist_ok=True)
 (OUT / "assets").mkdir(exist_ok=True)
 shutil.copy(SRC / "Icon128.png", OUT / "assets" / "icon.png")
+if (SRC / "images").is_dir():
+    shutil.copytree(SRC / "images", OUT / "images", dirs_exist_ok=True)
 search_index = []
 
 def text_of(h):
