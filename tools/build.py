@@ -129,6 +129,7 @@ ai_intro = """<h1>Writing with AI (JSON)</h1>
 <div class="callout"><strong>How to use it:</strong> download the file below, upload it (or paste it) into ChatGPT, Claude, Gemini or any AI chat, and say <em>"Let's start"</em>.
 The AI asks about your story, shows you a readable story map, then writes JSON you drag straight into Unreal.<br><br>
 <a class="btn" href="TagDialogue_AI_Writing_Guide.md" download>Download the AI guide (.md)</a></div>
+<img src="images/ai-workflow.svg" alt="AI workflow">
 <p class="muted">The full file is shown below. It is also the complete reference for the JSON format.</p>"""
 ai_h = render(ai_body)
 (OUT / "ai-writing.html").write_text(page_html("Writing with AI (JSON)", ai_intro + ai_h, "ai-writing"), encoding="utf-8")

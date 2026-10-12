@@ -1,8 +1,11 @@
-# Tag Dialogue documentation
+# Tag Dialogue: Documentation
 
-Published with GitHub Pages. To rebuild after editing the Markdown docs in the plugin:
+**Tag Dialogue** is a dialogue system for Unreal Engine 5, driven by Gameplay Tags and built for Blueprint.
 
-```
-python tools/build.py <folder with TagDialogue_Manual.md, TagDialogue_AI_Writing_Guide.md, Icon128.png> .
-copy tools\style.css assets\ & copy tools\search.js assets\
-```
+📖 **Read the docs:** https://yahyagames.github.io/TagDialogue-Docs/
+
+- [Quick start](https://yahyagames.github.io/TagDialogue-Docs/quick-start.html)
+- [Writing dialogues with AI](https://yahyagames.github.io/TagDialogue-Docs/ai-writing.html)
+- [Troubleshooting](https://yahyagames.github.io/TagDialogue-Docs/troubleshooting.html)
+
+**Support:** yahya@harcs.studio
