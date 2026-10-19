@@ -5,7 +5,7 @@ import markdown
 
 SRC = Path(sys.argv[1])          # folder with TagDialogue_Manual.md, TagDialogue_AI_Writing_Guide.md, Icon128.png
 OUT = Path(sys.argv[2])
-FAB_URL = "#"                    # replace with the Fab listing link once it exists
+FAB_URL = "https://fab.com/s/6501d1136ebb"
 SUPPORT = "mailto:yahya@harcs.studio"
 VERSION = "1.0 · Unreal Engine 5.6"
 
